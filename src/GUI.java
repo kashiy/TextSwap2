@@ -2,9 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-//todo this should be a singleton
-public class GUI implements ActionListener {
+
+public class GUI implements ActionListener, KeyListener {
 
     private JFrame frame;
     private JButton button;
@@ -15,8 +17,16 @@ public class GUI implements ActionListener {
     private String copiedFromBoard="";
     private String pastedToBoard="";
 
+    //this should be a singleton
+    private static class SingletonHolder {
+        private static GUI instance = new GUI();
+    }
 
-    public GUI(){
+    public static GUI getInstance() {
+        return GUI.SingletonHolder.instance;
+    }
+
+    private GUI(){
 
         frame = new JFrame();
         button = new JButton("Paste");
@@ -55,6 +65,27 @@ public class GUI implements ActionListener {
         copiedTextArea.setText(copiedFromBoard);
         pastedToBoard = swapper.setHebFromClip(copiedFromBoard);
         pastedTextArea.setText(pastedToBoard);
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        int key = e.getKeyCode();
+        if(key == KeyEvent.VK_N){
+            copiedFromBoard = swapper.getHebFromClip();
+            copiedTextArea.setText(copiedFromBoard);
+            pastedToBoard = swapper.setHebFromClip(copiedFromBoard);
+            pastedTextArea.setText(pastedToBoard);
+        }
     }
 }
 

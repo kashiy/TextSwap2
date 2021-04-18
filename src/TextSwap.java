@@ -8,7 +8,9 @@ import java.awt.datatransfer.*;
 public class TextSwap {
 
     public static void main(String[] args) {
-        GUI a = new GUI();
+        GUI a = GUI.getInstance();
+        //this is a singleton, only one gui will be opened
+        //       GUI b = GUI.getInstance();
     }
 
 
