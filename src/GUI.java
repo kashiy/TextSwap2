@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-
-public class GUI implements ActionListener, KeyListener {
+//public class GUI implements ActionListener, KeyListener {
+public class GUI implements ActionListener {
 
     private JFrame frame;
     private JButton button;
@@ -32,6 +32,8 @@ public class GUI implements ActionListener, KeyListener {
         button = new JButton("Paste");
         swapper = new TextSwap();
         button.addActionListener(this);
+        //alt+c add an optoin for text be shown with keyboard shorcuts combinations.
+        button.setMnemonic('c');
         label = new JLabel("Swapped to Heb");
 
         //todo - check why width is stuck
@@ -66,7 +68,7 @@ public class GUI implements ActionListener, KeyListener {
         pastedToBoard = swapper.setHebFromClip(copiedFromBoard);
         pastedTextArea.setText(pastedToBoard);
     }
-
+/*
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -80,6 +82,7 @@ public class GUI implements ActionListener, KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
+        System.out.println(key);
         if(key == KeyEvent.VK_N){
             copiedFromBoard = swapper.getHebFromClip();
             copiedTextArea.setText(copiedFromBoard);
@@ -87,6 +90,7 @@ public class GUI implements ActionListener, KeyListener {
             pastedTextArea.setText(pastedToBoard);
         }
     }
+
+ */
 }
 
-//todo - add an optoin for text be shown with keyboard shorcuts combinations.

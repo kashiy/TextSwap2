@@ -41,7 +41,7 @@ public class Swap {
         return newtext.toString();
 
     }
-
+    //todo - handle capital letters with ascii sub to match
     private static char switcher(char cha){
         switch ((int) cha) {
             case ((int) ' '):
