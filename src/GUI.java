@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -46,16 +47,16 @@ public class GUI implements ActionListener {
 
         label = new JLabel("Swapped to Heb");
 
-        //todo - check why width is stuck
-        copiedTextArea = new JTextArea(copiedFromBoard);
-        copiedTextArea.setBounds(250,250,250,200);
+
+        copiedTextArea = new JTextArea(50,50);
         copiedTextArea.setEditable(false);
-        pastedTextArea = new JTextArea(copiedFromBoard);
-        pastedTextArea.setBounds(20,75,250,200);
+
+        pastedTextArea = new JTextArea(50,50);
         pastedTextArea.setEditable(false);
 
+        //todo - check why button is the same as area
         panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(30,250,50,250));
+        panel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         panel.setLayout(new GridLayout(0,1));
 
         panel.add(copiedTextArea);
