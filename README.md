@@ -1,2 +1,2 @@
 # TextSwap2
-TextSwap2 english to hebrew
+TextSwap2 - gibrish english to hebrew
